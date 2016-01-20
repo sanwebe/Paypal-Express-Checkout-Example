@@ -156,7 +156,7 @@
 				
 				$httpParsedResponseAr = $this->PPHttpPost('DoExpressCheckoutPayment', $padata);
 					
-				vdump($httpParsedResponseAr);
+				//vdump($httpParsedResponseAr);
 
 				//Check if everything went ok..
 				if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])){
