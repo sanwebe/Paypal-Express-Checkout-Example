@@ -178,62 +178,8 @@
 						echo '<div style="color:red">Transaction Complete, but payment is still pending! '.
 						'You need to manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
 					}
-
-					// we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
-					// GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
 					
-					$padata = 	'&TOKEN='.urlencode(_GET('token'));
-					
-					$httpParsedResponseAr = $this->PPHttpPost('GetExpressCheckoutDetails', $padata, PPL_API_USER, PPL_API_PASSWORD, PPL_API_SIGNATURE, PPL_MODE);
-
-					if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])){
-						
-						echo '<br /><b>Stuff to store in database :</b><br /><pre>';
-						/*
-						#### SAVE BUYER INFORMATION IN DATABASE ###
-						//see (http://www.sanwebe.com/2013/03/basic-php-mysqli-usage) for mysqli usage
-						
-						$buyerName = $httpParsedResponseAr["FIRSTNAME"].' '.$httpParsedResponseAr["LASTNAME"];
-						$buyerEmail = $httpParsedResponseAr["EMAIL"];
-						
-						//Open a new connection to the MySQL server
-						$mysqli = new mysqli('host','username','password','database_name');
-						
-						//Output any connection error
-						if ($mysqli->connect_error) {
-							die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
-						}		
-						
-						$insert_row = $mysqli->query("INSERT INTO BuyerTable 
-						(BuyerName,BuyerEmail,TransactionID,ItemName,ItemNumber, ItemAmount,ItemQTY)
-						VALUES ('$buyerName','$buyerEmail','$transactionID','$products[0]['ItemName']',$products[0]['ItemNumber'], $products[0]['ItemTotalPrice'],$ItemQTY)");
-						
-						if($insert_row){
-							print 'Success! ID of last inserted record is : ' .$mysqli->insert_id .'<br />'; 
-						}else{
-							die('Error : ('. $mysqli->errno .') '. $mysqli->error);
-						}
-						
-						*/
-						
-						echo '<pre>';
-						
-							print_r($httpParsedResponseAr);
-							
-						echo '</pre>';
-					} 
-					else  {
-						
-						echo '<div style="color:red"><b>GetTransactionDetails failed:</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
-						
-						echo '<pre>';
-						
-							print_r($httpParsedResponseAr);
-							
-						echo '</pre>';
-
-					}
-				
+					$this->GetTransactionDetails();
 				}
 				else{
 						
@@ -248,7 +194,67 @@
 			}
 			else{
 				
-				echo 'Error doing Express checkout payment...';
+				// Request Transaction Details
+				
+				$this->GetTransactionDetails();
+			}
+		}
+				
+		function GetTransactionDetails(){
+		
+			// we can retrive transection details using either GetTransactionDetails or GetExpressCheckoutDetails
+			// GetTransactionDetails requires a Transaction ID, and GetExpressCheckoutDetails requires Token returned by SetExpressCheckOut
+			
+			$padata = 	'&TOKEN='.urlencode(_GET('token'));
+			
+			$httpParsedResponseAr = $this->PPHttpPost('GetExpressCheckoutDetails', $padata, PPL_API_USER, PPL_API_PASSWORD, PPL_API_SIGNATURE, PPL_MODE);
+
+			if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])){
+				
+				echo '<br /><b>Stuff to store in database :</b><br /><pre>';
+				/*
+				#### SAVE BUYER INFORMATION IN DATABASE ###
+				//see (http://www.sanwebe.com/2013/03/basic-php-mysqli-usage) for mysqli usage
+				
+				$buyerName = $httpParsedResponseAr["FIRSTNAME"].' '.$httpParsedResponseAr["LASTNAME"];
+				$buyerEmail = $httpParsedResponseAr["EMAIL"];
+				
+				//Open a new connection to the MySQL server
+				$mysqli = new mysqli('host','username','password','database_name');
+				
+				//Output any connection error
+				if ($mysqli->connect_error) {
+					die('Error : ('. $mysqli->connect_errno .') '. $mysqli->connect_error);
+				}		
+				
+				$insert_row = $mysqli->query("INSERT INTO BuyerTable 
+				(BuyerName,BuyerEmail,TransactionID,ItemName,ItemNumber, ItemAmount,ItemQTY)
+				VALUES ('$buyerName','$buyerEmail','$transactionID','$products[0]['ItemName']',$products[0]['ItemNumber'], $products[0]['ItemTotalPrice'],$ItemQTY)");
+				
+				if($insert_row){
+					print 'Success! ID of last inserted record is : ' .$mysqli->insert_id .'<br />'; 
+				}else{
+					die('Error : ('. $mysqli->errno .') '. $mysqli->error);
+				}
+				
+				*/
+				
+				echo '<pre>';
+				
+					print_r($httpParsedResponseAr);
+					
+				echo '</pre>';
+			} 
+			else  {
+				
+				echo '<div style="color:red"><b>GetTransactionDetails failed:</b>'.urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]).'</div>';
+				
+				echo '<pre>';
+				
+					print_r($httpParsedResponseAr);
+					
+				echo '</pre>';
+
 			}
 		}
 		
