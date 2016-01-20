@@ -20,7 +20,7 @@
 		define('PPL_API_SIGNATURE', 'opupouopupo987kkkhkixlksjewNyJ2pEq.Gufar');
 	}
 	
-	define('PPL_LANG', SITE_LANG);
+	define('PPL_LANG', 'EN);
 	
 	define('PPL_LOGO_IMG', 'http://www.sanwebe.com/wp-content/themes/sanwebe/img/logo.png');
 	
