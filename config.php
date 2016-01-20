@@ -7,7 +7,7 @@
 	// sandbox or live
 	define('PPL_MODE', 'sandbox');
 
-	if(PPL_MODE=='sendbox'){
+	if(PPL_MODE=='sandbox'){
 		
 		define('PPL_API_USER', 'somepaypal_api.yahoo.co.uk');
 		define('PPL_API_PASSWORD', '123456789');
