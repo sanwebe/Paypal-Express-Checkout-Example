@@ -175,8 +175,8 @@
 					}
 					elseif('Pending' == $httpParsedResponseAr["PAYMENTINFO_0_PAYMENTSTATUS"]){
 						
-						echo '<div style="color:red">Transaction Complete, but payment is still pending! '.
-						'You need to manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
+						echo '<div style="color:red">Transaction Complete, but payment may still be pending! '.
+						'If that\'s the case, You can manually authorize this payment in your <a target="_new" href="http://www.paypal.com">Paypal Account</a></div>';
 					}
 					
 					$this->GetTransactionDetails();
