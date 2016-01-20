@@ -7,3 +7,13 @@
 ## Features
 
  - Checkout multiple products at once
+ - Custom paypal template (logo, color...)
+
+## Last changes
+
+  - Checkout multiple products at once
+  - Process simplified
+  - Class improved
+  - Functions to compute total amounts, tax and charges
+  - Constants defined outside
+  - Tested live and it works
