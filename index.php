@@ -15,7 +15,7 @@ body{font-family: arial;color: #7A7A7A;margin:0px;padding:0px;}
   <tr>
     <td width="70%"><h4>Canon EOS Rebel XS</h4>(Capture all your special moments with the Canon EOS Rebel XS/1000D DSLR camera and cherish the memories over and over again.)</td>
     <td width="30%">
-    <form method="post" action="process.php">
+    <form method="post" action="process.php?paypal=checkout">
 	<input type="hidden" name="itemname" value="Canon EOS Rebel XS" /> 
 	<input type="hidden" name="itemnumber" value="10000" /> 
     <input type="hidden" name="itemdesc" value="Capture all your special moments with the Canon EOS Rebel XS/1000D DSLR camera and cherish the memories over and over again." /> 
@@ -31,7 +31,7 @@ body{font-family: arial;color: #7A7A7A;margin:0px;padding:0px;}
   <tr>
     <td width="70%"><h4>Nikon COOLPIX</h4>(Nikon Coolpix S9050 26355 digital camera capture vibrant photos up to 12.1 megapixels)</td>
     <td width="30%">
-    <form method="post" action="process.php">
+    <form method="post" action="process.php?paypal=checkout">
 	<input type="hidden" name="itemname" value="Nikon COOLPIX" /> 
 	<input type="hidden" name="itemnumber" value="20000" /> 
     <input type="hidden" name="itemdesc" value="Nikon Coolpix S9050 26355 digital camera capture vibrant photos up to 12.1 megapixels." /> 
