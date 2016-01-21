@@ -18,7 +18,7 @@ include_once("paypal.class.php");
 		
 		$products = [];
 		
-		/*
+		
 		
 		// set an item via POST request
 		
@@ -27,14 +27,14 @@ include_once("paypal.class.php");
 		$products[0]['ItemNumber'] = _POST('itemnumber'); //Item Number
 		$products[0]['ItemDesc'] = _POST('itemdesc'); //Item Number
 		$products[0]['ItemQty']	= _POST('itemQty'); // Item Quantity
-		*/
 		
+		/*
 		$products[0]['ItemName'] = 'my item 1'; //Item Name
 		$products[0]['ItemPrice'] = 0.5; //Item Price
 		$products[0]['ItemNumber'] = 'xxx1'; //Item Number
 		$products[0]['ItemDesc'] = 'good item'; //Item Number
 		$products[0]['ItemQty']	= 1; // Item Quantity		
-		
+		*/
 		/*
 		
 		// set a second item
