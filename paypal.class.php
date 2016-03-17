@@ -274,7 +274,7 @@
 				$ch = curl_init();
 				curl_setopt($ch, CURLOPT_URL, $API_Endpoint);
 				curl_setopt($ch, CURLOPT_VERBOSE, 1);
-				curl_setopt($ch, CURLOPT_SSL_CIPHER_LIST, 'TLSv1');
+				//curl_setopt($ch, CURLOPT_SSL_CIPHER_LIST, 'TLSv1');
 				
 				// Turn off the server and peer verification (TrustManager Concept).
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
