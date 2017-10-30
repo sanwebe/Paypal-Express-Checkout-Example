@@ -22,7 +22,7 @@
 	
 	define('PPL_LANG', 'EN');
 	
-	define('PPL_LOGO_IMG', 'http://www.sanwebe.com/wp-content/themes/sanwebe/img/logo.png');
+	define('PPL_LOGO_IMG', 'http://url/to/site/logo.png');
 	
 	define('PPL_RETURN_URL', 'http://localhost/paypal/process.php');
 	define('PPL_CANCEL_URL', 'http://localhost/paypal/cancel_url.php');
